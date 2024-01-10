@@ -40,7 +40,7 @@ chmod +x apkeep
 # Manual download
 if [ ! -f "com.manjuu.azurlane.inner" ]; then
     echo "Get Azur Lane apk"
-    wget https://download1479.mediafire.com/9mkc393uj5hg9yuLcP61-1qlcihNn1x30_tgsJeR4FKAdBCBbbZKgrE0FuKdBQraShWZpku6p1T--3HbtTrWQVpI_hbI90Qgrq4PmkKFp0xx4Mzbz7L76rxMBQfun05kFireo71L0YuvRbnZ2VRWMMv7VVc0lhEaM9Q2pwLsfyCgTik/sejswesol6l8wp5/Azur+Lane+%5B7.1.8%5D.apk -O com.manjuu.azurlane.inner.apk -q
+    wget https://drive.usercontent.google.com/download?id=19jMX2TwPLKDgVjkW_lFQrJntzfR5C4bG&export=download&confirm=t&uuid=86a1da66-8f30-4917-a80d-e295161f5807 -O com.manjuu.azurlane.inner.apk -q
     echo "apk downloaded !"
 fi
 
