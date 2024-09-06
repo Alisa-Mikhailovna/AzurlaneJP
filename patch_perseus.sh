@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # Download apkeep
 get_artifact_download_url () {
     # Usage: get_download_url <repo_name> <artifact_name> <file_type>
@@ -24,23 +23,18 @@ done
 
 chmod +x apkeep
 
-# Download Azur Lane
-#download_azurlane () {
-#    if [ ! -f "com.YoStarEN.AzurLane" ]; then
-#    ./apkeep -a com.YoStarEN.AzurLane .
-#    fi
-#}
-
-#if [ ! -f "com.YoStarEN.AzurLane" ]; then
+# if xapk
+#if [ ! -f "com.YoStarJP.AzurLane.apk" ]; then
 #    echo "Get Azur Lane apk"
-#    download_azurlane
-#    unzip -o com.YoStarEN.AzurLane.xapk -d AzurLane
-#    cp AzurLane/com.YoStarEN.AzurLane.apk .
+#    wget link.xapk
+#    unzip -o com.YoStarJP.AzurLane.xapk -d AzurLane
+#    cp AzurLane/com.YoStarJP.AzurLane.apk .
 #fi
-# Manual download
-if [ ! -f "com.manjuu.azurlane.inner" ]; then
+    
+# Download Azur Lane
+if [ ! -f "com.YoStarJP.AzurLane.apk" ]; then
     echo "Get Azur Lane apk"
-    wget https://download1078.mediafire.com/6j238f1s30hgGcztpOMQQ7qR2-3XM9cm30auVWt3kfeBRoGk0eIoIUiyj9hACIQPW-BDkZaep5oFIfO3LtbzvK2ig7pOTfY-5Zfzp_ZPiopkDl9gc_WNXx1VxDp0p_7BpRqsqQ1pCWhZvi7IH52xTn-pH-_EsCMPDf9ew0CCOLw6bszr/6chfmakhzugt0tm/New+Azur+Lane+Private+Server+GMChanneL.apk -O com.manjuu.azurlane.inner.apk -q
+    wget https://download1321.mediafire.com/9mnvq2uevrggEQ_EitlT79z_xdJk5i49yNFJ4-Ak9vJiQEHnVwZ6Gj4yMnA0Yhk8eKl5XBUNIhwJRzHItxxhTFI4FtmQrMY1xmQKInPdOHzCoBg1uyYbxepjf1bsQUb6uHbZVPQwW1Nv193_jU2UQKvXDnwUBRk95N-kuZp2VqvP6Q/2pieu1trij26ybi/%E3%82%A2%E3%82%BA%E3%83%BC%E3%83%AB%E3%83%AC%E3%83%BC%E3%83%B3_8.1.29_APKPure.apk -O com.YoStarJP.AzurLane.apk -q
     echo "apk downloaded !"
 fi
 
@@ -51,19 +45,19 @@ if [ ! -d "Perseus" ]; then
 fi
 
 echo "Decompile Azur Lane apk"
-java -jar apktool.jar -q -f d com.manjuu.azurlane.inner.apk
+java -jar apktool.jar -q -f d com.YoStarJP.AzurLane.apk
 
 echo "Copy Perseus libs"
-cp -r Perseus/. com.manjuu.azurlane.inner/lib/
+cp -r Perseus/. com.YoStarJP.AzurLane/lib/
 
 echo "Patching Azur Lane with Perseus"
-oncreate=$(grep -n -m 1 'onCreate' com.manjuu.azurlane.inner/smali_classes2/com/unity3d/player/UnityPlayerActivity.smali | sed  's/[0-9]*\:\(.*\)/\1/')
-sed -ir "s#\($oncreate\)#.method private static native init(Landroid/content/Context;)V\n.end method\n\n\1#" com.manjuu.azurlane.inner/smali_classes2/com/unity3d/player/UnityPlayerActivity.smali
-sed -ir "s#\($oncreate\)#\1\n    const-string v0, \"Perseus\"\n\n\    invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V\n\n    invoke-static {p0}, Lcom/unity3d/player/UnityPlayerActivity;->init(Landroid/content/Context;)V\n#" com.manjuu.azurlane.inner/smali_classes2/com/unity3d/player/UnityPlayerActivity.smali
+oncreate=$(grep -n -m 1 'onCreate' com.YoStarJP.AzurLane/smali_classes2/com/unity3d/player/UnityPlayerActivity.smali | sed  's/[0-9]*\:\(.*\)/\1/')
+sed -ir "s#\($oncreate\)#.method private static native init(Landroid/content/Context;)V\n.end method\n\n\1#" com.YoStarJP.AzurLane/smali_classes2/com/unity3d/player/UnityPlayerActivity.smali
+sed -ir "s#\($oncreate\)#\1\n    const-string v0, \"Perseus\"\n\n\    invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V\n\n    invoke-static {p0}, Lcom/unity3d/player/UnityPlayerActivity;->init(Landroid/content/Context;)V\n#" com.YoStarJP.AzurLane/smali_classes2/com/unity3d/player/UnityPlayerActivity.smali
 
 echo "Build Patched Azur Lane apk"
-java -jar apktool.jar -q -f b com.manjuu.azurlane.inner -o build/com.manjuu.azurlane.inner.patched.apk
+java -jar apktool.jar -q -f b com.YoStarJP.AzurLane -o build/com.YoStarJP.AzurLane.patched.apk
 
 echo "Set Github Release version"
-s=($(./apkeep -a com.manjuu.azurlane.inner -l))
+s=($(./apkeep -a com.YoStarJP.AzurLane -l))
 echo "PERSEUS_VERSION=$(echo ${s[-1]})" >> $GITHUB_ENV
