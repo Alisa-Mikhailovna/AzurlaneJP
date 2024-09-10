@@ -2,7 +2,7 @@
 
 | Download | Support |
 |-------|------|
-| [![GitHub Release Date](https://img.shields.io/github/release-date/Alisa-Mikhailovna/AzurLaneJP)](https://github.com/Alisa-Mikhailovna/AzurLaneJP/releases) | [![Static Badge](https://img.shields.io/badge/discord-blue)](https://discord.gg/QQxadkGa) |
+| [![GitHub Release Date](https://img.shields.io/github/release-date/Alisa-Mikhailovna/AzurLaneJP)](https://github.com/Alisa-Mikhailovna/AzurLaneJP/releases) | [![Static Badge](https://img.shields.io/badge/discord-blue)](https://discord.com/users/1186782391235260517) |
 
 This repo template will allow you to build Perseus using Github Actions. This will helps people who don't want to setup build environments on their machines.
 
