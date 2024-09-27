@@ -34,7 +34,7 @@ chmod +x apkeep
 # Download Azur Lane
 if [ ! -f "com.YoStarJP.AzurLane.apk" ]; then
     echo "Get Azur Lane apk"
-    wget https://download1321.mediafire.com/9mnvq2uevrggEQ_EitlT79z_xdJk5i49yNFJ4-Ak9vJiQEHnVwZ6Gj4yMnA0Yhk8eKl5XBUNIhwJRzHItxxhTFI4FtmQrMY1xmQKInPdOHzCoBg1uyYbxepjf1bsQUb6uHbZVPQwW1Nv193_jU2UQKvXDnwUBRk95N-kuZp2VqvP6Q/2pieu1trij26ybi/%E3%82%A2%E3%82%BA%E3%83%BC%E3%83%AB%E3%83%AC%E3%83%BC%E3%83%B3_8.1.29_APKPure.apk -O com.YoStarJP.AzurLane.apk -q
+    wget https://download1648.mediafire.com/vq3fj7e38gwglE-gpHsLUz1YRG6eVBu_C2N8o1hc32BmtvHmZmMB0AKecJdkfynayiSCKPGL66TvHhnF1ifv32Fs3vOpDON9wdG53hXbKNpyMkJ57ED8BfEIBixa1q6RGst3qy3mOodxlmaElHKrlt8yOjyn05h3vTSsMkeQ_SiYzLo/tv65gehbfa9s37r/com.YoStarJP.AzurLane.apk -O com.YoStarJP.AzurLane.apk -q
     echo "apk downloaded !"
 fi
 
